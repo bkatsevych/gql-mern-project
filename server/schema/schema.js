@@ -10,7 +10,7 @@ const {
     GraphQLEnumType,
 } = require("graphql");
 
-// Project
+// Types
 const ProjectType = new GraphQLObjectType({
     name: "Project",
     fields: () => ({
@@ -27,7 +27,6 @@ const ProjectType = new GraphQLObjectType({
     }),
 });
 
-// Client
 const ClientType = new GraphQLObjectType({
     name: "Client",
     fields: () => ({
