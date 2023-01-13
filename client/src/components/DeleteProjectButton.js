@@ -1,0 +1,27 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
+import { useMutation } from "@apollo/client";
+import { DELETE_PROJECT } from "../mutations/projectMutations";
+import { GET_PROJECTS } from "../queries/projectQueries";
+
+const DeleteProjectButton = ({ projectId }) => {
+    const navigate = useNavigate();
+
+    const [deleteProject] = useMutation(DELETE_PROJECT, {
+        variables: { projectId },
+        onCompleted: () => navigate("/"),
+        refetchQueries: [{ query: GET_PROJECTS }],
+    });
+
+    return (
+        <div className="d-flex mt-5 mx-auto">
+            <button onClick={deleteProject} className="btn btn-danger mt-2">
+                <FaTrash className="icon" />
+                Delete Project
+            </button>
+        </div>
+    );
+};
+
+export default DeleteProjectButton;

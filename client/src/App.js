@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import { client } from "./utils/apolloConfig";
 import NotFound from "./pages/NotFound";
+import Project from "./pages/Project";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="*" element={<NotFound />} />
+                        <Route path="/project/:id" element={<Project />} />
                     </Routes>
                 </div>
             </Router>
